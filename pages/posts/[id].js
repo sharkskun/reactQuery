@@ -22,7 +22,7 @@ const PostDetail = () => {
     const { data: comments = [], isLoading: commentsLoading } = useQuery(['comments', id], () => fetchComments(id), {
         enabled: !!id,
     });
-
+    
     if (postLoading || commentsLoading) return <div>Loading...</div>;
 
     if (!post) return <div>posts tidak ada</div>;

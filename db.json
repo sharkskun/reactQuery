@@ -1,15 +1,61 @@
 {
   "posts": [
-    { "id": "1", "title": "coba 1","description":"Halo ini post 1", "views": 100 },
-    { "id": "2", "title": "coba 2","description":"Halo ini post 2", "views": 200 }
+    {
+      "id": "1",
+      "title": "coba 1",
+      "description": "Halo ini post 1",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "coba 2",
+      "description": "Halo ini post 2",
+      "views": 200
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "image": [
-    { "id": "1", "url": "https://example.com/image1.jpg", "description": "Image related to post 1", "postId": "1" },
-    { "id": "2", "url": "https://example.com/image2.jpg", "description": "Another image related to post 2", "postId": "1" }
+    {
+      "id": "1",
+      "url": "https://example.com/image1.jpg",
+      "description": "Image related to post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "url": "https://example.com/image2.jpg",
+      "description": "Another image related to post 2",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    [
+      {
+        "username": "kresna",
+        "password": "anjaygimang"
+      }
+    ],
+    {
+      "id": "167b",
+      "username": "kresna",
+      "password": "babik1"
+    },
+    {
+      "id": "9f7d",
+      "username": "blabla",
+      "password": "123"
+    }
   ],
   "profile": {
     "name": "typicode"
