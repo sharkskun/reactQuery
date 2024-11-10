@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { apiUrl} from "../../constant/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function LoginForm() {
   const [username, setUsername] = useState('');
@@ -13,28 +17,30 @@ export default function LoginForm() {
     setSuccess(false);
 
     try {
-      const response = await axios.get(`http://localhost:3000/users`, {
-        params: {
+      const response = await axios.post(`${apiUrl}/auth/login`, {
           username,
-          password,
-        },
+          password
       });
+
 
       if (response.data.length > 0) {
         setSuccess(true);
         setUsername('');
         setPassword('');
+        toast.success("suksees");
+        <ToastContainer/>
       } else {
         setError("Invalid username or password");
       }
     } catch (error) {
-      console.error("Login error:", error);
-      setError("Error logging in. Please try again.");
+      console.error("Login error:", error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <ToastContainer/>
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <h2 className="mb-4 text-2xl font-semibold text-center text-gray-700">Login</h2>
         <form onSubmit={handleLogin}>
@@ -45,7 +51,7 @@ export default function LoginForm() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-2 mt-1 text-black-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
           </div>
@@ -56,7 +62,7 @@ export default function LoginForm() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 mt-1 text-red-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
           </div>
@@ -68,7 +74,6 @@ export default function LoginForm() {
           </button>
         </form>
         {error && <p className="mt-4 text-sm text-center text-red-500">{error}</p>}
-        {success && <p className="mt-4 text-sm text-center text-green-500">Login successful!</p>}
       </div>
     </div>
   );

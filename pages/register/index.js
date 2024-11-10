@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { apiUrl } from '@/constant/api';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -24,8 +25,12 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/users', {
+      const response = await axios.post(`${apiUrl}/auth/register`, {
         username: formData.username,
+        name: "kresna",
+        email: "dummyemail@gmail.com",
+        phone: 1262172,
+        status: true,
         password: formData.password
       });
       console.log('Berhasil Registrasi:', response.data);
