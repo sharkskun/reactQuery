@@ -10,6 +10,7 @@ export default function Register() {
     name: '',
     email: '',
     phone: '',
+    status: true,
     password: '',
     confirmPassword: ''
   });
@@ -35,7 +36,7 @@ export default function Register() {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        status: true,
+        status: formData.status,
         password: formData.password
       });
       // console.log('Berhasil Registrasi:', response.data);
@@ -100,6 +101,18 @@ export default function Register() {
               className="w-full px-4 py-2 mt-1 text-black-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="status" className="block text-sm font-medium text-gray-600">Status</label>
+            <select
+              id="status"
+              value={formData.status}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value === "true" })}
+              className="w-full px-4 py-2 mt-1 text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required>
+              <option value={true}>Active</option>
+              <option value={false}>Inactive</option>
+            </select>
           </div>
           <div className="mb-4">
             <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
