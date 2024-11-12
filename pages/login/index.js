@@ -27,10 +27,9 @@ export default function LoginForm() {
         setSuccess(true);
         setUsername('');
         setPassword('');
-        toast.success("suksees");
-        <ToastContainer/>
       } else {
-        setError("Invalid username or password");
+        toast.success(response.data.message);
+        <ToastContainer/>
       }
     } catch (error) {
       console.error("Login error:", error.response.data.message);
