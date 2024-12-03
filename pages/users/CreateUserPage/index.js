@@ -25,7 +25,6 @@ export default function CreateUser() {
     e.preventDefault();
 
     try {
-      // Kirim data ke backend
       const response = await axios.post(`${apiUrl}/api/users`, {
         username: formData.username,
         name: formData.name,
@@ -36,7 +35,6 @@ export default function CreateUser() {
       });
 
       toast.success('User berhasil dibuat!');
-      // Reset form setelah sukses
       setFormData({
         username: '',
         name: '',
@@ -46,7 +44,6 @@ export default function CreateUser() {
         password: '',
       });
     } catch (error) {
-      // Tampilkan error jika terjadi
       toast.error(
         `Gagal membuat user: ${
           error.response?.data?.message || 'Terjadi kesalahan'
@@ -64,7 +61,7 @@ export default function CreateUser() {
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-600">
+            <label htmlFor="username" className="block text-sm font-medium text-black">
               Username
             </label>
             <input
@@ -73,9 +70,7 @@ export default function CreateUser() {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required/>
           </div>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-600">
@@ -87,9 +82,7 @@ export default function CreateUser() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required/>
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-600">
@@ -101,9 +94,7 @@ export default function CreateUser() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required/>
           </div>
           <div className="mb-4">
             <label htmlFor="phone" className="block text-sm font-medium text-gray-600">
@@ -115,9 +106,7 @@ export default function CreateUser() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required/>
           </div>
           <div className="mb-4">
             <label htmlFor="status" className="block text-sm font-medium text-gray-600">
@@ -128,9 +117,7 @@ export default function CreateUser() {
               name="status"
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value === 'true' })}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            >
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required>
               <option value={true}>Active</option>
               <option value={false}>Inactive</option>
             </select>
@@ -145,15 +132,12 @@ export default function CreateUser() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"required/>
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none"
-          >
-            Register User
+            className="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none">
+            Create User
           </button>
         </form>
       </div>

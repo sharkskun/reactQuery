@@ -1,1 +1,1 @@
-export const apiUrl= "https://fbe1-36-78-188-3.ngrok-free.app"
+export const apiUrl= "http://localhost:3001"
