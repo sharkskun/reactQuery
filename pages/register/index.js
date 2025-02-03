@@ -64,7 +64,7 @@ export default function CreateUser() {
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-600">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-600 text-black">
               Username
             </label>
             <input
@@ -73,7 +73,7 @@ export default function CreateUser() {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
@@ -87,7 +87,7 @@ export default function CreateUser() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
@@ -101,7 +101,7 @@ export default function CreateUser() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
@@ -115,7 +115,7 @@ export default function CreateUser() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
@@ -128,7 +128,7 @@ export default function CreateUser() {
               name="status"
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value === 'true' })}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             >
               <option value={true}>Active</option>
@@ -145,7 +145,7 @@ export default function CreateUser() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { apiUrl} from "../../constant/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
 
 export default function LoginForm() {
@@ -10,6 +11,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,17 +21,21 @@ export default function LoginForm() {
     try {
       const response = await axios.post(`${apiUrl}/auth/login`, {
           username,
-          password
+          password,
       });
 
+      const { accessToken, message } = response.data;
 
-      if (response.data.length > 0) {
+      if (accessToken) {
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('username', username);
+
         setSuccess(true);
         setUsername('');
         setPassword('');
+        router.push("/users")
       } else {
         toast.success(response.data.message);
-        <ToastContainer/>
       }
     } catch (error) {
       console.error("Login error:", error.response.data.message);
@@ -50,7 +56,7 @@ export default function LoginForm() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
@@ -61,7 +67,7 @@ export default function LoginForm() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 mt-1 text-black-700 bg-black-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
               required
             />
           </div>
